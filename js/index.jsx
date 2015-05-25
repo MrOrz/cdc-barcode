@@ -3,18 +3,47 @@ require('../css/index.css');
 
 var React = require('react'),
     Page = require('./Page.jsx'),
+    Input = require('./Input.jsx'),
     App;
 
 App = React.createClass({
+  getInitialState() {
+    return {
+      isPreviewing: false,
+      data: {
+        name: '',
+        birthday: [],
+        rocid: '',
+        mobile: '',
+        email: '',
+        userId: ''
+      }
+    };
+  },
+
+  onInputSubmit(data) {
+    this.setState({
+      isPreviewing: true,
+      data: data
+    });
+  },
+
   render() {
-    return (
-      <Page name="王曉明"
-            rocid="F123456789"
-            email="abc@123.com"
-            mobile="0987654321"
-            userId="1b2346"
-            birthday={[78,12,31]} />
-    )
+    if(!this.state.isPreviewing) {
+      return (
+        <Input onSubmit={this.onInputSubmit}
+             data={this.state.data}/>
+     );
+    } else {
+      return (
+        <Page name={this.state.data.name}
+              rocid={this.state.data.rocid}
+              email={this.state.data.email}
+              mobile={this.state.data.mobile}
+              userId={this.state.data.userId}
+              birthday={this.state.data.birthday} />
+      );
+    }
   }
 });
 
