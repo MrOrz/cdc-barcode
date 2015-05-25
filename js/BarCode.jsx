@@ -6,14 +6,22 @@ module.exports = React.createClass({
     code: React.PropTypes.string.isRequired
   },
   componentDidMount() {
-    var canvas = ioBarcode.CODE128B(
-      this.props.code,
-      {
-        displayValue: true
-      }
-    );
+    var placeholder = React.findDOMNode(this.refs.placeholder);
+    try {
+      var canvas = ioBarcode.CODE128B(
+        this.props.code,
+        {
+          displayValue: true,
+          height: 50,
+          fontSize: 18
+        }
+      );
+      placeholder.appendChild(canvas);
+    } catch (e) {
+      console.error(e);
+      placeholder.innerText = "您輸入的字無法編成條碼";
+    }
 
-    React.findDOMNode(this.refs.placeholder).appendChild(canvas);
   },
   render() {
     return (
