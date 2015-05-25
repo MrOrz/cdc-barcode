@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start": "node_modules/.bin/webpack-dev-server --config config/webpack.js",
+    "clean": "rm -rf build",
     "build": "webpack --config=config/webpack.js --progress",
     "// deploy": "Depoly steps, which creates a branch named _deploy, builds and commits compiled project, and pushes to Heroku.",
     "deploy:init": "git checkout -b _deploy && echo '!build' >> .gitignore",
     "deploy:commit": "_COMMIT_MSG=$(git log -n 1 --pretty=format:'%h - %s') && git add .gitignore build && git commit -m \"$_COMMIT_MSG\"",
     "deploy:push": "git push --force origin _deploy:gh-pages",
     "deploy:cleanup": "git checkout - && git branch -D _deploy",
-    "deploy": "npm run deploy:init && npm run build && npm run deploy:commit && npm run deploy:push && npm run deploy:cleanup"
+    "deploy": "npm run deploy:init && npm run clean && NODE_ENV=production npm run build && npm run deploy:commit && npm run deploy:push && npm run deploy:cleanup"
   },
   "repository": {
     "type": "git",
