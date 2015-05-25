@@ -21,29 +21,45 @@ App = React.createClass({
     };
   },
 
-  onInputSubmit(data) {
+  setPageData(data) {
     this.setState({
       isPreviewing: true,
       data: data
     });
   },
 
+  backToInput() {
+    this.setState({
+      isPreviewing: false
+    });
+  },
+
   render() {
+    var content;
+
     if(!this.state.isPreviewing) {
-      return (
-        <Input onSubmit={this.onInputSubmit}
-             data={this.state.data}/>
-     );
+      content = (
+        <Input onSubmit={this.setPageData}
+               data={this.state.data}/>
+      );
     } else {
-      return (
-        <Page name={this.state.data.name}
+      content = [
+        (<button key="nav" onClick={this.backToInput}>返回編輯</button>),
+        <Page key="content"
+              name={this.state.data.name}
               rocid={this.state.data.rocid}
               email={this.state.data.email}
               mobile={this.state.data.mobile}
               userId={this.state.data.userId}
               birthday={this.state.data.birthday} />
-      );
+      ];
     }
+
+    return (
+      <main>
+        {content}
+      </main>
+    )
   }
 });
 

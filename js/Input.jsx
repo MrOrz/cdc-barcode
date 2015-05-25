@@ -58,7 +58,7 @@ module.exports = React.createClass({
     );
 
     return (
-      <form className="Input" onSubmit={this.handleSubmit}>
+      <form className="Input" onSubmit={this.handleSubmit} rel="form">
         {name}
         {birthday}
         {rocId}
@@ -68,6 +68,7 @@ module.exports = React.createClass({
         {userId}
         <hr />
         <button type="submit">預覽列印</button>
+        <button type="reset">全部重設</button>
       </form>
     );
   }
