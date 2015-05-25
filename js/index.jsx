@@ -1,7 +1,17 @@
 // Trigger CSS processing
 require('../css/index.css');
 
-var JSBarcode = require('exports?JsBarcode!JsBarcode');
+var React = require('react'),
+    BarCode = require('./BarCode.jsx'),
 
-console.log('Hello world!', JSBarcode);
+    App;
 
+App = React.createClass({
+  render() {
+    return (
+      <BarCode code="ABCabc123@" />
+    )
+  }
+});
+
+React.render(<App />, document.getElementById('react-root'));
