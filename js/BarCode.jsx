@@ -6,7 +6,7 @@ module.exports = React.createClass({
     code: React.PropTypes.string.isRequired
   },
   componentDidMount() {
-    var placeholder = React.findDOMNode(this.refs.placeholder);
+    var img = React.findDOMNode(this.refs.img);
     try {
       var canvas = ioBarcode.CODE128B(
         this.props.code,
@@ -16,16 +16,18 @@ module.exports = React.createClass({
           fontSize: 18
         }
       );
-      placeholder.appendChild(canvas);
+      img.src = canvas.toDataURL();
     } catch (e) {
       console.error(e);
-      placeholder.innerText = "您輸入的字無法編成條碼";
+      img.alt = "您輸入的字無法編成條碼";
     }
 
   },
   render() {
+    // Canvases are not printable, but images are.
+    //
     return (
-      <div ref="placeholder" />
+      <img ref="img" />
     )
   }
 });
