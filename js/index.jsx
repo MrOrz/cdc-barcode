@@ -1,4 +1,7 @@
 // Trigger CSS processing
 require('../css/index.css');
 
-console.log('Hello world!');
+var JSBarcode = require('exports?JsBarcode!JsBarcode');
+
+console.log('Hello world!', JSBarcode);
+
