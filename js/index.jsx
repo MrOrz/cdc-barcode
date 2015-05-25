@@ -34,6 +34,17 @@ App = React.createClass({
     });
   },
 
+  componentDidMount() {
+    // Disables back button.
+    // http://stackoverflow.com/questions/12381563/how-to-stop-browser-back-button-using-javascript
+    //
+    history.pushState(null, null, '');
+    window.addEventListener('popstate', (event) => {
+      history.pushState(null, null, '');
+      this.backToInput(); // Back to input page whenever back button is pressed.
+    });
+  },
+
   render() {
     var content;
 
