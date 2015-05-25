@@ -28,8 +28,12 @@ module.exports = React.createClass({
       )
     }
 
+    var timeStr = (new Date).toLocaleString();
+
     return (
       <div className="Page">
+        <p>{timeStr}</p>
+
         <table>
           <tr>
             <th>姓名</th><td>{this.props.name}</td>
