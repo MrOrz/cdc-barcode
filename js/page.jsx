@@ -13,9 +13,9 @@ module.exports = React.createClass({
 
   render() {
 
-    var pinContent = `
+    var pinContent = <p>
       卡片密碼預設為持卡人民國出生年月日共 6 碼。例如：生日為 73 年 12 月 31 日，卡片密碼預設為 <code>731231</code>。
-    `;
+    </p>;
 
     if(this.props.birthday.length === 3 &&
        this.props.birthday[0] && this.props.birthday[1] && this.props.birthday[2]) {
