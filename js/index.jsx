@@ -5,6 +5,9 @@ require('../css/index.css');
 var React = require('react'),
     Page = require('./Page.jsx'),
     Input = require('./Input.jsx'),
+    mui = require('material-ui'),
+    IconButton = mui.IconButton,
+    Isvg = require('react-inlinesvg'),
     ThemeManager = require('material-ui/lib/styles/theme-manager')(),
     App;
 
@@ -83,8 +86,14 @@ App = React.createClass({
     } else {
       content = [
         <nav className="App-nav" key="nav">
-          <button className="App-back" onClick={this.backToInput}>返回編輯</button>
-          <button className="App-print" onClick={this.showPrintDialog}>列印</button>
+          <IconButton className="App-back" tooltip="返回編輯"
+                      onClick={this.backToInput} >
+            <Isvg src={require('../images/material-icons/ic_chevron_left_24px.svg')} />
+          </IconButton>
+          <IconButton className="App-print" tooltip="列印"
+                      onClick={this.showPrintDialog}>
+            <Isvg src={require('../images/material-icons/ic_print_24px.svg')} />
+          </IconButton>
         </nav>,
         <Page key="content"
               name={this.state.data.name}

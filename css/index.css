@@ -14,6 +14,12 @@
   margin-right: auto;
 }
 
+.Input-header .isvg {
+  float: left;
+  margin: 6px -8px 0 8px;
+  height: 24px;
+}
+
 .Input > section {
   margin: 36px 0;
 }
@@ -104,16 +110,18 @@
 }
 
 .App-nav {
-  display: none;
-  overflow: auto;
+  display: none; /* Not visible in print */
+  flex-flow: row;
+  align-items: stretch;
 }
 
 .App-back {
-  float: left;
+  margin-right: auto;
+  transform: scale(1.5);
 }
 
 .App-print {
-  float: right;
+  transform: scale(1.5);
 }
 
 .App-footer {
@@ -129,11 +137,18 @@
 
 @media screen {
   .App-nav {
-    display: block;
+    display: flex;
+    padding: 16px 0;
+    height: 48px;
+    fill: rgba(255, 255, 255, .87);
+    color: rgba(255, 255, 255, .87);
+
+    z-index: 100;
+    position: relative;
   }
 
   .App--page {
-    padding: 48px;
+    padding: 0 56px 56px;
     background: #333;
   }
 

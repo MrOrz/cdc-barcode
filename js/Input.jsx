@@ -2,6 +2,7 @@ var React = require('react'),
     mui = require('material-ui'),
     Pin = require('./Pin.jsx'),
     utility = require('./utility'),
+    Isvg = require('react-inlinesvg'),
     TextField = mui.TextField,
     FlatButton = mui.FlatButton,
     RaisedButton = mui.RaisedButton;
@@ -74,7 +75,9 @@ module.exports = React.createClass({
       <form className="Input" onSubmit={this.handleSubmit} ref="form">
         <header className="Input-header">
           <h1>自然人憑證申請表</h1>
-          <FlatButton type="reset" label="清除重填" />
+          <FlatButton type="reset" label="清除重填">
+            <Isvg src={require('../images/material-icons/ic_clear_24px.svg')} />
+          </FlatButton>
         </header>
         <section>
           <div className="Input-row Input-row--guttered">
