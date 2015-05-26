@@ -74,7 +74,7 @@ module.exports = React.createClass({
       <form className="Input" onSubmit={this.handleSubmit} ref="form">
         <header className="Input-header">
           <h1>自然人憑證申請表</h1>
-          <button type="reset">清除重填</button>
+          <FlatButton type="reset" label="清除重填" />
         </header>
         <section>
           <div className="Input-row Input-row--guttered">
@@ -120,11 +120,16 @@ module.exports = React.createClass({
               <p className="Input-userIdNote">鎖卡之後，才會用「用戶代碼」解鎖。6 ~ 10 碼英文、數字或「@」、「%」等特殊符號。</p>
             </div>
 
-            <button type="button" onClick={this.copyBirthdayToUserId} disabled={isCopyButtonDisabled}>設成生日</button>
+            <FlatButton type="button"
+                        onClick={this.copyBirthdayToUserId}
+                        disabled={isCopyButtonDisabled}
+                        label="設成生日" secondary={true} />
           </div>
         </section>
 
-        <button type="submit">預覽列印</button>
+        <RaisedButton type="submit" label="預覽列印" primary={true}
+                      style={{display: 'block', height: '44px'}}
+                      labelStyle={{fontSize: '20px'}}/>
       </form>
     );
   }

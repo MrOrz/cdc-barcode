@@ -7,6 +7,7 @@
 .Input-header {
   display: flex;
   flex-flow: row;
+  align-items: center;
 }
 
 .Input-header h1 {
