@@ -1,7 +1,16 @@
 .Input {
   margin: 0 auto;
   padding: 8px;
-  max-width: 800px;
+  max-width: 600px;
+}
+
+.Input-header {
+  display: flex;
+  flex-flow: row;
+}
+
+.Input-header h1 {
+  margin-right: auto;
 }
 
 .Input > section {
