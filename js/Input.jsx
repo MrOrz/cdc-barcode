@@ -114,11 +114,10 @@ module.exports = React.createClass({
             <div className="Input-rowItem Input-userId">
               <TextField style={{width: '100%', fontSize: '18px'}}
                          floatingLabelText="用戶代碼" type="text" ref="userId"
-                         hintText="6 ~ 10 碼英文、數字或「@」、「%」等特殊符號"
                          minLength="6" maxLength="10"
                          pattern="[\w\W]{6,10}"
                          defaultValue={this.props.data.userId} required />
-              <p className="Input-userIdNote">鎖卡之後，才會用「用戶代碼」解鎖。</p>
+              <p className="Input-userIdNote">鎖卡之後，才會用「用戶代碼」解鎖。6 ~ 10 碼英文、數字或「@」、「%」等特殊符號。</p>
             </div>
 
             <button type="button" onClick={this.copyBirthdayToUserId} disabled={isCopyButtonDisabled}>設成生日</button>
