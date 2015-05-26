@@ -80,7 +80,7 @@ module.exports = React.createClass({
           <div className="Input-row Input-row--guttered">
             <TextField floatingLabelText="姓名" type="text" ref="name" defaultValue={this.props.data.name}
                        className="Input-rowItem" style={inputStyle} required />
-            <TextField floatingLabelText="身分證字號" size="10" ref="rocid" defaultValue={this.props.data.rocid}
+            <TextField floatingLabelText="身分證字號" size="10" ref="rocid" pattern="\w\d{9}" defaultValue={this.props.data.rocid}
                        className="Input-rowItem" style={inputStyle} required />
           </div>
           <div className="Input-birthday Input-row">
@@ -102,8 +102,9 @@ module.exports = React.createClass({
           <div className="Input-row Input-row--guttered">
             <TextField floatingLabelText="E-mail" type="email" ref="email" defaultValue={this.props.data.email}
                        className="Input-rowItem" style={inputStyle} required />
-            <TextField floatingLabelText="行動電話" size="10" ref="mobile" defaultValue={this.props.data.mobile}
-                       className="Input-rowItem" style={inputStyle} required />
+            <TextField floatingLabelText="行動電話" maxLength="10" pattern="\d{10}" ref="mobile" defaultValue={this.props.data.mobile}
+                       className="Input-rowItem" style={inputStyle} required
+                       hintText="10 位數字相連"/>
           </div>
         </section>
 
@@ -115,6 +116,7 @@ module.exports = React.createClass({
                          floatingLabelText="用戶代碼" type="text" ref="userId"
                          hintText="6 ~ 10 碼英文、數字或「@」、「%」等特殊符號"
                          minLength="6" maxLength="10"
+                         pattern="[\w\W]{6,10}"
                          defaultValue={this.props.data.userId} required />
               <p className="Input-userIdNote">鎖卡之後，才會用「用戶代碼」解鎖。</p>
             </div>
