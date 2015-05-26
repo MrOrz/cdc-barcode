@@ -1,3 +1,12 @@
 label {
   display: block;
 }
+
+.Input {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.Input-birthdayRow input {
+  text-align: center;
+}

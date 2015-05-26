@@ -1,5 +1,7 @@
 var React = require('react'),
-    BarCode = require('./BarCode.jsx');
+    BarCode = require('./BarCode.jsx'),
+    Pin = require('./Pin.jsx'),
+    utility = require('./utility');
 
 module.exports = React.createClass({
   propTypes: {
@@ -13,19 +15,16 @@ module.exports = React.createClass({
 
   render() {
 
-    var pinContent = <p>
-      卡片密碼預設為持卡人民國出生年月日共 6 碼。例如：生日為 73 年 12 月 31 日，卡片密碼預設為 <code>731231</code>。
-    </p>;
+    var pinContent;
 
-    if(this.props.birthday.length === 3 &&
-       this.props.birthday[0] && this.props.birthday[1] && this.props.birthday[2]) {
+    if (utility.isBirthdayFormatCorrect(this.props.birthday)) {
+      pinContent = <Pin birthday={this.props.birthday} />
+    } else {
       pinContent = (
-        <code>
-          {padWith0(this.props.birthday[0])}
-          {padWith0(this.props.birthday[1])}
-          {padWith0(this.props.birthday[2])}
-        </code>
-      )
+        <p>
+          卡片密碼預設為持卡人民國出生年月日共 6 碼。例如：生日為 73 年 12 月 31 日，卡片密碼預設為 <code>731231</code>。
+        </p>
+      );
     }
 
     var timeStr = (new Date).toLocaleString();

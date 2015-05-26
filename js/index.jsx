@@ -4,6 +4,7 @@ require('../css/index.css');
 var React = require('react'),
     Page = require('./Page.jsx'),
     Input = require('./Input.jsx'),
+    ThemeManager = require('material-ui/lib/styles/theme-manager')(),
     App;
 
 App = React.createClass({
@@ -32,6 +33,16 @@ App = React.createClass({
     this.setState({
       isPreviewing: false
     });
+  },
+
+  childContextTypes: {
+    muiTheme: React.PropTypes.object
+  },
+
+  getChildContext() {
+    return {
+      muiTheme: ThemeManager.getCurrentTheme()
+    };
   },
 
   componentDidMount() {
