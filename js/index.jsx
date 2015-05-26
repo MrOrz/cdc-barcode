@@ -65,10 +65,19 @@ App = React.createClass({
     var content, classModifier;
 
     if(!this.state.isPreviewing) {
-      content = (
+      content = [
         <Input onSubmit={this.setPageData}
-               data={this.state.data}/>
-      );
+               data={this.state.data}/>,
+
+        <footer className="App-footer">
+          <p>
+            本登打頁面不會以任何形式傳輸與儲存您的資料・離開前請記得預覽並列印
+          </p>
+          <p>
+            說明文字之著作權為內政部所有・本登打頁面為<a href="https://github.com/mrorz/cdc-barcode">開放原始碼專案</a>
+          </p>
+        </footer>
+      ];
 
       classModifier = 'input';
     } else {

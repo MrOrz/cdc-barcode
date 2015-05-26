@@ -9,7 +9,7 @@ module.exports = React.createClass({
   render() {
     if(utility.isBirthdayFormatCorrect(this.props.birthday)) {
       return (
-        <code>
+        <code {...this.props}>
           {utility.getPinFromBirthday(this.props.birthday)}
         </code>
       )
