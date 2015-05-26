@@ -13,7 +13,8 @@ module.exports = React.createClass({
         {
           displayValue: true,
           height: 50,
-          fontSize: 18
+          fontSize: 18,
+          width: 1
         }
       );
       img.src = canvas.toDataURL();
