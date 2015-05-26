@@ -31,39 +31,46 @@ module.exports = React.createClass({
 
     return (
       <div className="Page">
-        <p>{timeStr}</p>
+        <p className="Page-printTime">列印時間：{timeStr}</p>
 
-        <table>
-          <tr>
-            <th>姓名</th>
-            <td>{this.props.name}</td>
-          </tr>
-          <tr>
-            <th>身分證字號</th>
-            <td><BarCode code={this.props.rocid} /></td>
-          </tr>
-          <tr>
-            <th>E-mail</th>
-            <td><BarCode code={this.props.email} /></td>
-          </tr>
-          <tr>
-            <th>行動電話</th>
-            <td><BarCode code={this.props.mobile} /></td>
-          </tr>
-          <tr>
-            <th>用戶代碼</th>
-            <td>
-              <BarCode code={this.props.userId} />
-              <p>* 憑證中心與戶政事務所並無留存您的用戶代碼，請妥善保存。</p>
-            </td>
-          </tr>
-          <tr>
-            <th>PIN 碼</th>
-            <td>
-              {pinContent}
-              <p>* 憑證中心與戶政事務所並無留存您的 PIN 碼，請妥善保存。</p>
-            </td>
-          </tr>
+        <table className="Page-table">
+          <thead>
+            <tr>
+              <th colSpan="2">自然人憑證申請資料表</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>姓名</th>
+              <td>{this.props.name}</td>
+            </tr>
+            <tr>
+              <th>身分證字號</th>
+              <td><BarCode code={this.props.rocid} /></td>
+            </tr>
+            <tr>
+              <th>E-mail</th>
+              <td><BarCode code={this.props.email} /></td>
+            </tr>
+            <tr>
+              <th>行動電話</th>
+              <td><BarCode code={this.props.mobile} /></td>
+            </tr>
+            <tr>
+              <th>用戶代碼</th>
+              <td>
+                <BarCode code={this.props.userId} />
+                <p className="Page-tableNote">* 憑證中心與戶政事務所並無留存您的用戶代碼，請妥善保存。</p>
+              </td>
+            </tr>
+            <tr>
+              <th>PIN 碼</th>
+              <td>
+                {pinContent}
+                <p className="Page-tableNote">* 憑證中心與戶政事務所並無留存您的 PIN 碼，請妥善保存。</p>
+              </td>
+            </tr>
+          </tbody>
         </table>
 
         <h2>請確認您已了解以下事項：</h2>

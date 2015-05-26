@@ -58,16 +58,18 @@ App = React.createClass({
   },
 
   render() {
-    var content;
+    var content, classModifier;
 
     if(!this.state.isPreviewing) {
       content = (
         <Input onSubmit={this.setPageData}
                data={this.state.data}/>
       );
+
+      classModifier = 'input';
     } else {
       content = [
-        (<button key="nav" onClick={this.backToInput}>返回編輯</button>),
+        (<button key="nav" className="App-back" onClick={this.backToInput}>返回編輯</button>),
         <Page key="content"
               name={this.state.data.name}
               rocid={this.state.data.rocid}
@@ -76,10 +78,12 @@ App = React.createClass({
               userId={this.state.data.userId}
               birthday={this.state.data.birthday} />
       ];
+
+      classModifier = 'page';
     }
 
     return (
-      <main>
+      <main className={`App--${classModifier}`}>
         {content}
       </main>
     )

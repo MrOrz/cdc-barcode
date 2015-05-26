@@ -35,3 +35,57 @@ label {
 .Input-birthdayItem {
   margin: 0 0.5em;
 }
+
+.Page {
+  position: relative;
+}
+
+.Page-table {
+  width: 100%;
+}
+
+.Page-table thead th {
+  background: rgb(191,230,1);
+  color: rgba(0,0,0,.56);
+}
+
+.Page-printTime {
+  text-align: right;
+  font-size: 13px;
+  color: rgba(0,0,0,.56);
+}
+
+.Page-table th,
+.Page-table td {
+  padding: 0.5em;
+  border-bottom: 1px dotted rgba(0,0,0,.56);
+}
+
+.Page-table th {
+  background: #f7f7f7;
+}
+
+.Page-tableNote {
+  margin: 0;
+  font-size: 12px;
+}
+
+.App-back {
+  display: none;
+}
+
+@media screen {
+  .App-back {
+    display: inline-block;
+  }
+
+  .App--page {
+    padding: 48px;
+    background: #333;
+  }
+
+  .Page {
+    background: #fff;
+    padding: 48px;
+  }
+}
