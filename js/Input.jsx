@@ -32,7 +32,11 @@ module.exports = React.createClass({
   },
 
   resetForm() {
-    React.findDOMNode(this.refs.form).reset();
+    var refsToClear = ['name','rocid','mobile','email','birthYear', 'birthMonth', 'birthDay','userId'];
+    refsToClear.forEach((ref) => {
+      this.refs[ref].clearValue();
+    });
+    this.handleBirthdayChange();
   },
 
   handleBirthdayChange() {
@@ -75,7 +79,7 @@ module.exports = React.createClass({
       <form className="Input" onSubmit={this.handleSubmit} ref="form">
         <header className="Input-header">
           <h1>自然人憑證申請表</h1>
-          <FlatButton type="reset" label="清除重填">
+          <FlatButton type="button" label="清除重填" onClick={this.resetForm}>
             <Isvg src={require('../images/material-icons/ic_clear_24px.svg')} />
           </FlatButton>
         </header>
