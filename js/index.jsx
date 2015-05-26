@@ -1,4 +1,5 @@
 // Trigger CSS processing
+require('normalize.css');
 require('../css/index.css');
 
 var React = require('react'),
