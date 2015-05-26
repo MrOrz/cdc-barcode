@@ -82,32 +82,39 @@ module.exports = React.createClass({
         <section>
           <div className="Input-row Input-row--guttered">
             <TextField floatingLabelText="姓名" type="text" ref="name" defaultValue={this.props.data.name}
-                       className="Input-rowItem" style={inputStyle} required />
+                       className="Input-rowItem" style={inputStyle} required
+                       autoComplete="off" autoCorrect="off"  />
             <TextField floatingLabelText="身分證字號" size="10" ref="rocid" pattern="\w\d{9}" defaultValue={this.props.data.rocid}
-                       className="Input-rowItem" style={inputStyle} required />
+                       className="Input-rowItem" style={inputStyle} required
+                       autoComplete="off" autoCorrect="off" />
           </div>
           <div className="Input-birthday Input-row">
             出生年月日
             民國
             <TextField className="Input-rowItem Input-birthdayItem" type="number" ref="birthYear"
                        style={inputStyle}
-                       defaultValue={this.state.birthday[0]} onChange={this.handleBirthdayChange} /> 年
+                       defaultValue={this.state.birthday[0]} onChange={this.handleBirthdayChange}
+                       autoComplete="off" autoCorrect="off" /> 年
             <TextField className="Input-rowItem Input-birthdayItem" type="number" ref="birthMonth"
                        style={inputStyle}
-                       defaultValue={this.state.birthday[1]} onChange={this.handleBirthdayChange} /> 月
+                       defaultValue={this.state.birthday[1]} onChange={this.handleBirthdayChange}
+                       autoComplete="off" autoCorrect="off" /> 月
             <TextField className="Input-rowItem Input-birthdayItem" type="number" ref="birthDay"
                        style={inputStyle}
-                       defaultValue={this.state.birthday[2]} onChange={this.handleBirthdayChange} /> 日
+                       defaultValue={this.state.birthday[2]} onChange={this.handleBirthdayChange}
+                       autoComplete="off" autoCorrect="off" /> 日
           </div>
         </section>
 
         <section>
           <div className="Input-row Input-row--guttered">
             <TextField floatingLabelText="E-mail" type="email" ref="email" defaultValue={this.props.data.email}
-                       className="Input-rowItem" style={inputStyle} required />
+                       className="Input-rowItem" style={inputStyle} required
+                       autoComplete="off" autoCorrect="off" />
             <TextField floatingLabelText="行動電話" maxLength="10" pattern="\d{10}" ref="mobile" defaultValue={this.props.data.mobile}
                        className="Input-rowItem" style={inputStyle} required
-                       hintText="10 位數字相連"/>
+                       hintText="10 位數字相連"
+                       autoComplete="off" autoCorrect="off" />
           </div>
         </section>
 
@@ -118,7 +125,7 @@ module.exports = React.createClass({
               <TextField style={{width: '100%', fontSize: '18px'}}
                          floatingLabelText="用戶代碼" type="text" ref="userId"
                          minLength="6" maxLength="10"
-                         pattern="[\w\W]{6,10}"
+                         pattern="[\w\W]{6,10}" autoComplete="off" autoCorrect="off"
                          defaultValue={this.props.data.userId} required />
               <p className="Input-userIdNote">鎖卡之後，才會用「用戶代碼」解鎖。6 ~ 10 碼英文、數字或「@」、「%」等特殊符號。</p>
             </div>
