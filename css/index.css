@@ -7,6 +7,31 @@ label {
   max-width: 800px;
 }
 
-.Input-birthdayRow input {
+.Input-row {
+  margin: 1em 0;
+  display: flex;
+  flex-flow: row;
+  align-items: baseline;
+}
+
+.Input-row--guttered {
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+.Input-row--guttered .Input-rowItem {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.Input-rowItem {
+  flex: 1;
+}
+
+.Input-birthday input {
   text-align: center;
+}
+
+.Input-birthdayItem {
+  margin: 0 0.5em;
 }

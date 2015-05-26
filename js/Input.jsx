@@ -50,16 +50,16 @@ module.exports = React.createClass({
 
   render() {
     var pinRow = '',
-        rowInputStyle = {
-          display: 'block', width: 'auto', fontSize: '18px'
+        inputStyle = {
+          width: 'auto', fontSize: '18px'
         },
         isCopyButtonDisabled = true;
 
     if(utility.isBirthdayFormatCorrect(this.state.birthday)){
       pinRow = (
         <div>
-          您的卡片預設密碼（PIN 碼）為
-          <Pin birthday={this.state.birthday} />。
+          您的卡片密碼（PIN 碼）為
+          <Pin birthday={this.state.birthday} />。在拿到自然人憑證卡片之後，方可自行上網變更。
         </div>
       );
 
@@ -72,34 +72,46 @@ module.exports = React.createClass({
           <h1>自然人憑證申請表</h1>
           <button type="reset">清除重填</button>
         </header>
-        <TextField floatingLabelText="姓名" type="text" ref="name" defaultValue={this.props.data.name}
-                   style={rowInputStyle} required />
-        <TextField floatingLabelText="身分證字號" size="10" ref="rocid" defaultValue={this.props.data.rocid}
-                   style={rowInputStyle} required />
-        <TextField floatingLabelText="E-mail" type="email" ref="email" defaultValue={this.props.data.email}
-                   style={rowInputStyle} required />
-        <TextField floatingLabelText="行動電話" size="10" ref="mobile" defaultValue={this.props.data.mobile}
-                   style={rowInputStyle} required />
-        <hr />
-        <div className="Input-birthdayRow">
-          出生年月日
-          民國
-          <TextField type="number" ref="birthYear" style={{width: 'auto'}}
-                     defaultValue={this.state.birthday[0]} onChange={this.handleBirthdayChange} /> 年
-          <TextField type="number" ref="birthMonth" style={{width: 'auto'}}
-                     defaultValue={this.state.birthday[1]} onChange={this.handleBirthdayChange} /> 月
-          <TextField type="number" ref="birthDay" style={{width: 'auto'}}
-                     defaultValue={this.state.birthday[2]} onChange={this.handleBirthdayChange} /> 日
-        </div>
-        {pinRow}
-        <div>
-          <TextField floatingLabelText="用戶代碼" type="text" ref="userId"
-                     minLength="6" maxLength="10"
-                     style={{width: 'auto'}}
-                     defaultValue={this.props.data.userId} required />
-          <button type="button" onClick={this.copyBirthdayToUserId} disabled={isCopyButtonDisabled}>設成生日</button>
-        </div>
-        <hr />
+        <section>
+          <div className="Input-row Input-row--guttered">
+            <TextField floatingLabelText="姓名" type="text" ref="name" defaultValue={this.props.data.name}
+                       className="Input-rowItem" style={inputStyle} required />
+            <TextField floatingLabelText="身分證字號" size="10" ref="rocid" defaultValue={this.props.data.rocid}
+                       className="Input-rowItem" style={inputStyle} required />
+          </div>
+          <div className="Input-birthday Input-row">
+            出生年月日
+            民國
+            <TextField className="Input-rowItem Input-birthdayItem" type="number" ref="birthYear"
+                       style={inputStyle}
+                       defaultValue={this.state.birthday[0]} onChange={this.handleBirthdayChange} /> 年
+            <TextField className="Input-rowItem Input-birthdayItem" type="number" ref="birthMonth"
+                       style={inputStyle}
+                       defaultValue={this.state.birthday[1]} onChange={this.handleBirthdayChange} /> 月
+            <TextField className="Input-rowItem Input-birthdayItem" type="number" ref="birthDay"
+                       style={inputStyle}
+                       defaultValue={this.state.birthday[2]} onChange={this.handleBirthdayChange} /> 日
+          </div>
+        </section>
+
+        <section className="Input-row Input-row--guttered">
+          <TextField floatingLabelText="E-mail" type="email" ref="email" defaultValue={this.props.data.email}
+                     className="Input-rowItem" style={inputStyle} required />
+          <TextField floatingLabelText="行動電話" size="10" ref="mobile" defaultValue={this.props.data.mobile}
+                     className="Input-rowItem" style={inputStyle} required />
+        </section>
+
+        <section>
+          {pinRow}
+          <div className="Input-row">
+            <TextField className="Input-rowItem" style={inputStyle}
+                       floatingLabelText="用戶代碼" type="text" ref="userId"
+                       minLength="6" maxLength="10"
+                       defaultValue={this.props.data.userId} required />
+            <button type="button" onClick={this.copyBirthdayToUserId} disabled={isCopyButtonDisabled}>設成生日</button>
+          </div>
+        </section>
+
         <button type="submit">預覽列印</button>
       </form>
     );
