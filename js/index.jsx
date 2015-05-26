@@ -57,6 +57,10 @@ App = React.createClass({
     });
   },
 
+  showPrintDialog() {
+    window.print();
+  },
+
   render() {
     var content, classModifier;
 
@@ -69,7 +73,10 @@ App = React.createClass({
       classModifier = 'input';
     } else {
       content = [
-        (<button key="nav" className="App-back" onClick={this.backToInput}>返回編輯</button>),
+        <nav className="App-nav" key="nav">
+          <button className="App-back" onClick={this.backToInput}>返回編輯</button>
+          <button className="App-print" onClick={this.showPrintDialog}>列印</button>
+        </nav>,
         <Page key="content"
               name={this.state.data.name}
               rocid={this.state.data.rocid}

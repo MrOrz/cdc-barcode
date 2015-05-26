@@ -70,13 +70,22 @@ label {
   font-size: 12px;
 }
 
-.App-back {
+.App-nav {
   display: none;
+  overflow: auto;
+}
+
+.App-back {
+  float: left;
+}
+
+.App-print {
+  float: right;
 }
 
 @media screen {
-  .App-back {
-    display: inline-block;
+  .App-nav {
+    display: block;
   }
 
   .App--page {
