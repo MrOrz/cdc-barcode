@@ -1,7 +1,7 @@
 {
   "name": "cdc-barcode",
   "version": "0.0.1",
-  "description": "[非官方] 條碼版自然人憑證資料登打頁 （ http://moica.nat.gov.tw/rac_form.html ）的重製",
+  "description": "[民間版] 自然人憑證資料條碼登打頁（ http://moica.nat.gov.tw/rac_form.html 的重製）",
   "main": "index.js",
   "scripts": {
     "start": "node_modules/.bin/webpack-dev-server --config config/webpack.js",
