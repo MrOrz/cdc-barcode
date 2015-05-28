@@ -101,7 +101,7 @@ App = React.createClass({
                       onClick={this.backToInput} >
             <Isvg src={require('../images/material-icons/ic_chevron_left_24px.svg')} />
           </IconButton>
-          <IconButton className="App-resetAll" tooltip="清除所有資料"
+          <IconButton className={`App-resetAll ${ this.state.isPrinted && 'is-glowing' || ''}`} tooltip="清除所有資料"
                       onClick={this.resetAll}>
             <Isvg src={require('../images/material-icons/ic_clear_24px.svg')} />
           </IconButton>
