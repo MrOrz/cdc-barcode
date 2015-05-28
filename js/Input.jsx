@@ -130,8 +130,9 @@ module.exports = React.createClass({
                          floatingLabelText="用戶代碼" type="text" ref="userId"
                          minLength="6" maxLength="10"
                          pattern="[\w\W]{6,10}" autoComplete="off" autoCorrect="off"
-                         defaultValue={this.props.data.userId} required />
-              <p className="Input-userIdNote">鎖卡之後，才會用「用戶代碼」解鎖。6 ~ 10 碼英文、數字或「@」、「%」等特殊符號。</p>
+                         defaultValue={this.props.data.userId}
+                         hintText="6 ~ 10 字" required />
+              <p className="Input-userIdNote">鎖卡之後，才會用「用戶代碼」解鎖。英文、數字或「@」、「%」等特殊符號均可。</p>
             </div>
 
             <FlatButton type="button"
