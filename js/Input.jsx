@@ -114,20 +114,14 @@ module.exports = React.createClass({
         </section>
 
         <section>
-          <div className="Input-row Input-iconRow Input-row--guttered">
-            <div className="Input-rowItem">
-              <Isvg src={require('../images/material-icons/ic_mail_24px.svg')} />
-              <TextField floatingLabelText="E-mail" type="email" ref="email" defaultValue={this.props.data.email}
-                         style={extendedInputStyle} required
-                         autoComplete="off" autoCorrect="off" />
-            </div>
-            <div className="Input-rowItem">
-              <Isvg src={require('../images/material-icons/ic_phone_iphone_24px.svg')} />
-              <TextField floatingLabelText="手機號碼" maxLength="10" pattern="\d{10}" ref="mobile" defaultValue={this.props.data.mobile}
-                         style={extendedInputStyle} required
-                         hintText="10 位數字相連"
-                         autoComplete="off" autoCorrect="off" />
-            </div>
+          <div className="Input-row Input-row--guttered">
+            <TextField floatingLabelText="E-mail" type="email" ref="email" defaultValue={this.props.data.email}
+                       className="Input-rowItem" style={extendedInputStyle} required
+                       autoComplete="off" autoCorrect="off" />
+            <TextField floatingLabelText="手機號碼" maxLength="10" pattern="\d{10}" ref="mobile" defaultValue={this.props.data.mobile}
+                       className="Input-rowItem" style={extendedInputStyle} required
+                       hintText="10 位數字相連"
+                       autoComplete="off" autoCorrect="off" />
           </div>
         </section>
 
