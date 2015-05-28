@@ -53,6 +53,16 @@
   margin: 0 8px;
 }
 
+.Input-iconRow .Input-rowItem {
+  display: flex;
+  align-items: baseline;
+}
+
+.Input-iconRow .isvg {
+  margin-right: 12px;
+  fill: rgba(0,0,0,.20);
+}
+
 .Input-userIdRow {
   margin-top: 0;
 }
