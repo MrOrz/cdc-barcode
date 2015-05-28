@@ -120,6 +120,11 @@
   transform: scale(1.5);
 }
 
+.App-resetAll {
+  margin-right: 8px;
+  transform: scale(1.5);
+}
+
 .App-print {
   transform: scale(1.5);
 }

@@ -15,6 +15,7 @@ App = React.createClass({
   getInitialState() {
     return {
       isPreviewing: false,
+      isPrinted: false,
       data: {
         name: '',
         birthday: [],
@@ -35,8 +36,17 @@ App = React.createClass({
 
   backToInput() {
     this.setState({
-      isPreviewing: false
+      isPreviewing: false,
+      isPrinted: false
     });
+  },
+
+  resetAll() {
+    if(!this.state.isPrinted && !confirm("您似乎還沒列印，請問確定要清除資料嗎？")){
+      return;
+    }
+
+    this.setState(this.getInitialState());
   },
 
   childContextTypes: {
@@ -62,6 +72,7 @@ App = React.createClass({
 
   showPrintDialog() {
     window.print();
+    this.setState({isPrinted: true});
   },
 
   render() {
@@ -69,8 +80,8 @@ App = React.createClass({
 
     if(!this.state.isPreviewing) {
       content = [
-        <Input onSubmit={this.setPageData}
-               data={this.state.data}/>,
+                    <Input onSubmit={this.setPageData}
+   data={this.state.data}/>,
 
         <footer className="App-footer">
           <p>
@@ -89,6 +100,10 @@ App = React.createClass({
           <IconButton className="App-back" tooltip="返回編輯"
                       onClick={this.backToInput} >
             <Isvg src={require('../images/material-icons/ic_chevron_left_24px.svg')} />
+          </IconButton>
+          <IconButton className="App-resetAll" tooltip="清除所有資料"
+                      onClick={this.resetAll}>
+            <Isvg src={require('../images/material-icons/ic_clear_24px.svg')} />
           </IconButton>
           <IconButton className="App-print" tooltip="列印"
                       onClick={this.showPrintDialog}>
