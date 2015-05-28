@@ -91,7 +91,8 @@ module.exports = React.createClass({
             <TextField floatingLabelText="姓名" type="text" ref="name" defaultValue={this.props.data.name}
                        className="Input-rowItem" style={inputStyle} required
                        autoComplete="off" autoCorrect="off"  />
-            <TextField floatingLabelText="身分證字號" size="10" ref="rocid" pattern="\w\d{9}" defaultValue={this.props.data.rocid}
+            <TextField floatingLabelText="身分證字號" size="10" ref="rocid" 
+                       minLength="10" maxLength="10" pattern="\w\d{9}" defaultValue={this.props.data.rocid}
                        className="Input-rowItem" style={inputStyle} required
                        autoComplete="off" autoCorrect="off" />
           </div>
@@ -118,7 +119,7 @@ module.exports = React.createClass({
             <TextField floatingLabelText="E-mail" type="email" ref="email" defaultValue={this.props.data.email}
                        className="Input-rowItem" style={extendedInputStyle} required
                        autoComplete="off" autoCorrect="off" />
-            <TextField floatingLabelText="手機號碼" maxLength="10" pattern="\d{10}" ref="mobile" defaultValue={this.props.data.mobile}
+            <TextField floatingLabelText="手機號碼" minLength="10" maxLength="10" pattern="\d{10}" ref="mobile" defaultValue={this.props.data.mobile}
                        className="Input-rowItem" style={extendedInputStyle} required
                        hintText="10 位數字相連"
                        autoComplete="off" autoCorrect="off" />
