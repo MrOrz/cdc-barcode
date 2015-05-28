@@ -134,7 +134,7 @@ module.exports = React.createClass({
                          minLength="6" maxLength="10"
                          pattern="[\w\W]{6,10}" autoComplete="off" autoCorrect="off"
                          defaultValue={this.props.data.userId}
-                         hintText="6 ~ 10 字" required />
+                         hintText="6 ~ 10 個字" required />
               <p className="Input-userIdNote">鎖卡之後，才會用「用戶代碼」解鎖。英文、數字或「@」、「%」等特殊符號均可。</p>
             </div>
 
