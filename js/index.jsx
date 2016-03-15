@@ -80,8 +80,8 @@ App = React.createClass({
 
     if(!this.state.isPreviewing) {
       content = [
-                    <Input onSubmit={this.setPageData}
-   data={this.state.data}/>,
+        <Input onSubmit={this.setPageData}
+               data={this.state.data}/>,
 
         <footer className="App-footer">
           <p>
@@ -89,6 +89,12 @@ App = React.createClass({
           </p>
           <p>
             說明文字之著作權為內政部所有・本登打頁面為<a href="https://github.com/mrorz/cdc-barcode">開放原始碼專案</a>
+          </p>
+          <p>
+            測試卡片功能：
+            <a target="_blank" href="http://moica.nat.gov.tw/ShowCardInfo.html">線上檢測</a> |{' '}
+            <a target="_blank" href="https://www.ris.gov.tw/zh_TW/webapply/16">線上申請戶籍謄本</a> |{' '}
+            <a target="_blank" href="http://moica.nat.gov.tw/download_1.html">下載 HiCOS</a>
           </p>
         </footer>
       ];
